@@ -1,0 +1,7 @@
+seaborn
+pandas
+matplotlib
+scikit-learn
+graphviz
+IPython
+ipykernel
