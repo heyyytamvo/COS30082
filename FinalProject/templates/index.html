@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Webcam Access</title>
+    <style>
+        body { text-align: center; margin: 0; }
+        img { width: 80%; max-width: 600px; }
+    </style>
+</head>
+<body>
+    <h1>Webcam Feed</h1>
+    <img id="video" src="{{ url_for('video_feed') }}" alt="Video Feed"/>
+    
+    <script>
+        // Request access to the webcam
+        navigator.mediaDevices.getUserMedia({ video: true })
+            .then(function(stream) {
+                console.log("Webcam access granted.");
+            })
+            .catch(function(error) {
+                console.error("Error accessing webcam: ", error);
+                alert("Webcam access denied. Please allow access to use the application.");
+            });
+    </script>
+</body>
+</html>
